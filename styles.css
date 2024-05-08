@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to right, #101010, #0e0f1a);
+}
+
+.dashboard {
+  min-height: 100vh;
+  max-width: 1500px;
+  margin: 25px auto;
+  padding: 0 12px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+
+  & span {
+    width: 10px;
+    height: 10px;
+    background-color: #e42323;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+
+  & img {
+    width: 40px;
+  }
+
+  & h1 {
+    font-size: 26px;
+    color: #fefefe;
+  }
+}
+
+/* --- dropdown buttons navbar --- */
+.dropdown {
+  margin-left: auto;
+}
+
+.dropbtn {
+  background-color: #39393a;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+
+  & i {
+    margin-right: 6px;
+  }
+}
+
+.dropbtn:first-child {
+  margin-right: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* --- flex items --- */
+.flex-items {
+  display: flex;    
+  justify-content: center;
+  gap: 10px;
+
+  & div {
+    display: flex;
+    align-items: start;
+    height: 220px;
+    width: 250px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #111522;
+
+    & span {
+      width: 7px;
+      height: 7px;
+      background-color: #1dae5f;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    & h2 {
+      color: #fefefe;
+      font-size: 18px;
+    }
+
+    & i {
+      flex-direction: flex-end;
+      cursor: pointer;
+      margin-left: auto;
+      color: #868686;
+      height: fit-content;
+    }
+  }
+}
