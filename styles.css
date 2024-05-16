@@ -21,6 +21,7 @@ body {
   padding: 0 12px;
 }
 
+/* --- circles/dots  --- */
 .green_dot {
   width: 7px;
   height: 7px;
@@ -30,6 +31,25 @@ body {
   margin-right: 8px;
 }
 
+.red_dot {
+  width: 7px;
+  height: 7px;
+  background-color: #ea1919;
+  transform: translateY(9px);
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.yellow_dot {
+  width: 7px;
+  height: 7px;
+  background-color: #ebe322;
+  transform: translateY(9px);
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* --- navbar --- */
 nav {
   display: flex;
   align-items: center;
@@ -38,7 +58,7 @@ nav {
   & span {
     width: 10px;
     height: 10px;
-    background-color: #e42323;
+    background-color: #1dae5f;
     border-radius: 50%;
     margin-right: 6px;
   }
@@ -53,7 +73,6 @@ nav {
   }
 }
 
-/* --- dropdown btn navbar --- */
 .dropdown {
   margin-left: auto;
 }
@@ -103,115 +122,111 @@ nav {
   display: block;
 }
 
-/* --- flex items top --- */
-.flex-section-top {
+@media only screen and (max-width: 600px) {
+  nav h1 {
+    font-size: 22px;
+    margin-right: 6px;
+  }
+
+  .dropbtn {
+    font-size: 12px;
+
+    & i {
+      margin-right: 4px;
+    }
+  }
+}
+
+/* --- cards sections --- */
+.top-cards,
+.bottom-cards {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 30px;
+}
 
-  & .card {
-    display: flex;
-    align-items: start;
-    min-height: 220px;
-    max-height: 500px;
-    min-width: 250px;
-    padding: 10px;
-    border-radius: 6px;
-    background-color: #111522;
-    resize: both;
-    overflow: auto;
-    position: relative;
-    cursor: grab;
+/* --- top cards --- */
+.card {
+  display: flex;
+  align-items: start;
+  min-width: 400px;
+  min-height: 300px;
+  max-height: 500px;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #111522;
+  resize: both;
+  overflow: auto;
+  position: relative;
+  cursor: grab;
 
-    & h2 {
-      color: #fefefe;
-      font-size: 18px;
-    }
+  & h2 {
+    color: #fefefe;
+    font-size: 18px;
+  }
 
-    & i {
-      flex-direction: flex-end;
-      cursor: pointer;
-      margin-left: auto;
-      color: #868686;
-      height: fit-content;
-    }
-    & i:hover {
+  & i {
+    flex-direction: flex-end;
+    cursor: pointer;
+    margin-left: auto;
+    color: #868686;
+    height: fit-content;
+
+    &:hover {
       color: #e4dbdb;
     }
-    
   }
 }
 
-/* --- flex items bottom --- */
-.flex-section-bottom {
+/* --- bottom cards --- */
+.card1 {
   display: flex;
-  gap: 10px;
-  height: 600px;
+  min-width: 800px;
+  min-height: 500px;
+  max-height: 700px;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #111522;
+  resize: both;
+  overflow: auto;
+  position: relative;
+  cursor: grab;
 }
 
-.big-graph {
-  width: 60%;
+& .card2 {
+  display: flex;
+  min-width: 500px;
+  min-height: 300px;
+  max-height: 600px;
+  padding: 10px;
   border-radius: 6px;
-  padding: 12px 16px;
   background-color: #111522;
+  resize: both;
+  overflow: auto;
   position: relative;
+  cursor: grab;
 }
 
 .col-cards {
-  width: 40%;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.battery-charge,
-.temperature {
-  flex: 1;
-  border-radius: 6px;
-  padding: 10px;
-  background-color: #111522;
-  position: relative;
-}
-
-& .flex-items-card {
-  display: flex;
-  justify-content: space-between;
-}
-
-& h2 {
-  color: #fefefe;
-  font-size: 18px;
-}
-
-& i {
-  color: #868686;
-  height: fit-content;
-  cursor: pointer;
-}
-
-.dropdown-content-icon {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
 @media only screen and (max-width: 1080px) {
-  .flex-section-bottom {
+  .bottom-cards {
     display: flex;
     flex-wrap: wrap;
   }
 
-  .big-graph {
-    width: 100%;
+  .card1 {
+    min-width: 90%;
   }
 
-  .col-cards {
-    width: 100%;
+  .card2 {
+    min-width: 90%;
   }
 }
 
@@ -239,7 +254,7 @@ nav {
 .show-dropdown-menu-card {
   display: flex;
   flex-direction: column;
-  background-color: #fefefe;
+  background-color: #f9f9f9;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 5px;
   margin: 0;
@@ -248,16 +263,16 @@ nav {
   right: 20px;
 
   & p {
-  color: #1dae5f;
-  font-weight: bold;
-  border-bottom: 1px solid #0000002c;
-  text-align: center;
-  padding: 6px 0;
-}
+    color: #1dae5f;
+    font-weight: bold;
+    border-bottom: 1px solid #0000002c;
+    text-align: center;
+    padding: 6px 0;
+  }
 }
 
 .dragging {
-  opacity: 0.5; 
+  opacity: 0.5;
 }
 
 .drag-over {

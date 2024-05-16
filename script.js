@@ -37,7 +37,8 @@ cards.forEach(card => {
 
 function dragStart(e) {
     this.classList.add('dragging');
-    e.dataTransfer.setData('text/plain', ''); // Required for Firefox
+    e.dataTransfer.setData('text/plain', ''); 
+    // Required for Firefox
 }
 
 function dragEnter(e) {
