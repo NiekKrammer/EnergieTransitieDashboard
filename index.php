@@ -16,7 +16,6 @@
             <span></span>
             <img src="imgs/power-icon.png">
             <h1>Power Generation</h1>
-
             <div class="dropdown">
                 <button class="dropbtn"><i class="fa-solid fa-clock"></i> 24 hours</button>
                 <div class="dropdown-content">
@@ -26,55 +25,144 @@
                 </div>
             </div>
             <button class="dropbtn"><i class="fa-solid fa-share"></i> Share</button>
-
         </nav>
 
-        <!-- cards -->
-        <div class="flex-items">
+        <!-- cards top -->
+        <div class="flex-section-top">
 
-            <div>
-                <span></span>
+            <div class="card" draggable="true">
+                <span class="green_dot"></span>
                 <h2>Total Load</h2>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
+                <div class="dropdown-menu-card">
+                    <p>Data types</p>
+                    <button>data type 1</button>
+                    <button>data type 2</button>
+                    <button>data type 3</button>
+                    <button>data type 4</button>
+                </div>
+                <i class="fa-solid fa-ellipsis-vertical dropdown-icon"></i>
             </div>
 
-            <div>
-                <span></span>
+            <div class="card" draggable="true">
+                <span class="green_dot"></span>
                 <h2>Solar</h2>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
+                <div class="dropdown-menu-card">
+                    <p>Data types</p>
+                    <button>data type 1</button>
+                    <button>data type 2</button>
+                    <button>data type 3</button>
+                    <button>data type 4</button>
+                </div>
+                <i class="fa-solid fa-ellipsis-vertical dropdown-icon"></i>
             </div>
 
-            <div>
-                <span></span>
+            <div class="card" draggable="true">
+                <span class="green_dot"></span>
                 <h2>Grid</h2>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
+                <div class="dropdown-menu-card">
+                    <p>Data types</p>
+                    <button>data type 1</button>
+                    <button>data type 2</button>
+                    <button>data type 3</button>
+                    <button>data type 4</button>
+                </div>
+                <i class="fa-solid fa-ellipsis-vertical dropdown-icon"></i>
             </div>
 
-            <div>
-                <span></span>
+            <div class="card" draggable="true">
+                <span class="green_dot"></span>
                 <h2>Battery</h2>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
+                <div class="dropdown-menu-card">
+                    <p>Data types</p>
+                    <button>data type 1</button>
+                    <button>data type 2</button>
+                    <button>data type 3</button>
+                    <button>data type 4</button>
+                </div>
+                <i class="fa-solid fa-ellipsis-vertical dropdown-icon"></i>
             </div>
 
-            <div>
-                <span></span>
+            <div class="card" draggable="true">
+                <span class="green_dot"></span>
                 <h2>Battery Charge</h2>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
+                <div class="dropdown-menu-card">
+                    <p>Data types</p>
+                    <button>data type 1</button>
+                    <button>data type 2</button>
+                    <button>data type 3</button>
+                    <button>data type 4</button>
+                </div>
+                <i class="fa-solid fa-ellipsis-vertical dropdown-icon"></i>
             </div>
 
-            <div>
-                <span></span>
+            <div class="card" draggable="true">
+                <span class="green_dot"></span>
                 <h2>Temperature</h2>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
+                <div class="dropdown-menu-card">
+                    <p>Data types</p>
+                    <button>data type 1</button>
+                    <button>data type 2</button>
+                    <button>data type 3</button>
+                    <button>data type 4</button>
+                </div>
+                <i class="fa-solid fa-ellipsis-vertical dropdown-icon"></i>
             </div>
 
         </div>
 
+        <!-- cards bottom -->
+        <div class="flex-section-bottom">
+
+            <div class="big-graph">
+                <div class="flex-items-card" draggable="true">
+                    <h2>Solar Generation + UV Forecast</h2>
+                    <div class="dropdown-menu-card">
+                        <p>Data types</p>
+                        <button>data type 1</button>
+                        <button>data type 2</button>
+                        <button>data type 3</button>
+                        <button>data type 4</button>
+                    </div>
+                    <i class="fa-solid fa-ellipsis-vertical dropdown-icon"></i>
+                </div>
+            </div>
+
+            <div class="col-cards">
+
+                <div class="battery-charge">
+                    <div class="flex-items-card">
+                        <h2>Solar Generation + UV Forecast</h2>
+                        <div class="dropdown-menu-card">
+                            <p>Data types</p>
+                            <button>data type 1</button>
+                            <button>data type 2</button>
+                            <button>data type 3</button>
+                            <button>data type 4</button>
+                        </div>
+                        <i class="fa-solid fa-ellipsis-vertical dropdown-icon"></i>
+                    </div>
+                </div>
+                <div class="temperature">
+                    <div class="flex-items-card">
+                        <h2>Solar Generation + UV Forecast</h2>
+                        <div class="dropdown-menu-card">
+                            <p>Data types</p>
+                            <button>data type 1</button>
+                            <button>data type 2</button>
+                            <button>data type 3</button>
+                            <button>data type 4</button>
+                        </div>
+                        <i class="fa-solid fa-ellipsis-vertical dropdown-icon"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
 
     </section>
 
-
+    <script src="script.js"></script>
 </body>
 
 </html>
