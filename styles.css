@@ -26,7 +26,6 @@ body {
   width: 7px;
   height: 7px;
   background-color: #1dae5f;
-  transform: translateY(9px);
   border-radius: 50%;
   margin-right: 8px;
 }
@@ -35,7 +34,6 @@ body {
   width: 7px;
   height: 7px;
   background-color: #ea1919;
-  transform: translateY(9px);
   border-radius: 50%;
   margin-right: 8px;
 }
@@ -44,7 +42,6 @@ body {
   width: 7px;
   height: 7px;
   background-color: #ebe322;
-  transform: translateY(9px);
   border-radius: 50%;
   margin-right: 8px;
 }
@@ -148,19 +145,27 @@ nav {
 }
 
 /* --- top cards --- */
+
 .card {
-  display: flex;
-  align-items: start;
   min-width: 400px;
-  min-height: 300px;
-  max-height: 500px;
-  padding: 10px;
-  border-radius: 6px;
+  max-width: 1000px;
+  height: 100%;
   background-color: #111522;
-  resize: both;
-  overflow: auto;
+  padding: 12px;
+  border-radius: 6px;
+  transition: 0.3s;
   position: relative;
   cursor: grab;
+
+& .top-card-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+& .drop-icon {
+  margin-left: auto;
+}
 
   & h2 {
     color: #fefefe;
@@ -168,22 +173,30 @@ nav {
   }
 
   & i {
-    flex-direction: flex-end;
     cursor: pointer;
-    margin-left: auto;
     color: #868686;
     height: fit-content;
+    margin: 0 5px;
 
     &:hover {
       color: #e4dbdb;
     }
   }
+
+  & .resize-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
 }
 
 /* --- bottom cards --- */
 .card1 {
   display: flex;
-  min-width: 800px;
+  min-width: 600px;
+  width: 800px;
   min-height: 500px;
   max-height: 700px;
   padding: 10px;
@@ -197,7 +210,8 @@ nav {
 
 & .card2 {
   display: flex;
-  min-width: 500px;
+  min-width: 350px;
+  width: 500px;
   min-height: 300px;
   max-height: 600px;
   padding: 10px;
@@ -230,6 +244,7 @@ nav {
   }
 }
 
+/* --- dropdown menu card --- */
 .dropdown-menu-card {
   display: none;
 }
@@ -259,8 +274,8 @@ nav {
   border-radius: 5px;
   margin: 0;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 36px;
+  right: 26px;
 
   & p {
     color: #1dae5f;
