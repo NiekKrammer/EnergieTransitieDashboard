@@ -1,91 +1,57 @@
-const ctx = document.getElementById('bar');
+// Fetch CSV data and parse it
+fetch('data.csv')
+    .then(response => response.text())
+    .then(csvData => {
+        const parsedData = parseCSV(csvData);
 
-new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        plugins: {
-            customCanvasBackgroundColor: {
-                color: 'lightGreen',
-            }
-        },
-        scales: {
-            y: {
-                beginAtZero: true
-            }
+        generateChart('bar', parsedData);
+        generateChart('doughnut', parsedData);
+        generateChart('line', parsedData);
+        generateChart('polarArea', parsedData);
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+
+// Parse CSV data into an array of objects
+function parseCSV(csvData) {
+    const lines = csvData.split('\n');
+    const data = [];
+
+    for (let i = 1; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (line) {
+            const [date, energyProduced] = line.split(',');
+            data.push({ date, energyProduced: parseFloat(energyProduced) });
         }
     }
-});
 
-const doughnut = document.getElementById('doughnut');
+    return data;
+}
 
-new Chart(doughnut, {
-  type: 'doughnut',
-  data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
-
-const lines = document.querySelectorAll('.line');
-
-lines.forEach(line => {
-    new Chart(line, {
-        type: 'line',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+// Function to dynamically generate Chart.js initialization code
+function generateChart(type, data) {
+    const chartElements = document.querySelectorAll('.' + type);
+    chartElements.forEach(element => {
+        const chartData = {
+            labels: data.map(entry => entry.date),
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Energy Produced (kWh)',
+                data: data.map(entry => entry.energyProduced),
                 borderWidth: 1
             }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        };
+
+        new Chart(element, {
+            type: type,
+            data: chartData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
+        });
     });
-});
-
-
-const polarArea = document.getElementById('polarArea');
-
-new Chart(polarArea, {
-  type: 'polarArea',
-  data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
-    }
-  }
-});
+}

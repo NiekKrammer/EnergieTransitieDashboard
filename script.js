@@ -13,7 +13,7 @@ dropdownIcons.forEach((icon) => {
     });
 });
 
-// Add event listener to close dropdown menus when clicking outside
+// close dropdown menus when clicking outside
 document.addEventListener('click', (event) => {
     if (!event.target.closest('.dropdown-menu-card')) {
         let allDropdownMenus = document.querySelectorAll(".dropdown-menu-card");
@@ -22,6 +22,22 @@ document.addEventListener('click', (event) => {
         });
     }
 });
+
+// Active state
+const dropdownButtons = document.querySelectorAll('.dropdown-btn');
+
+// Add click event listener to each dropdown button
+dropdownButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        dropdownButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        // Add active class to the clicked button
+        button.classList.add('active');
+    });
+});
+
 
 // Drag and drop
 const cards = document.querySelectorAll('.card');
@@ -54,21 +70,26 @@ function dragLeave() {
     this.classList.remove('drag-over');
 }
 
-function drop() {
+function drop(e) {
     const draggedCard = document.querySelector('.dragging');
     this.parentNode.insertBefore(draggedCard, this.nextSibling);
     this.classList.remove('drag-over');
     
     // Save the order of cards to localStorage
-    const cardOrder = [];
-    cards.forEach(card => {
-        cardOrder.push(card.id);
-    });
-    localStorage.setItem('cardOrder', JSON.stringify(cardOrder));
+    saveCardOrder();
 }
 
 function dragEnd() {
     this.classList.remove('dragging');
+}
+
+// Save the order of cards to localStorage
+function saveCardOrder() {
+    const cardOrder = [];
+    document.querySelectorAll('.card').forEach(card => {
+        cardOrder.push(card.id);
+    });
+    localStorage.setItem('cardOrder', JSON.stringify(cardOrder));
 }
 
 // Load card order from localStorage on page load
@@ -76,15 +97,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const storedCardOrder = localStorage.getItem('cardOrder');
     if (storedCardOrder) {
         const cardOrder = JSON.parse(storedCardOrder);
-        cardOrder.forEach((cardId, index) => {
+        const topCardsContainer = document.querySelector('.top-cards');
+        const bottomCardsContainer = document.querySelector('.bottom-cards');
+
+        cardOrder.forEach(cardId => {
             const card = document.getElementById(cardId);
-            card.style.order = index + 1;
+            if (topCardsContainer.contains(card)) {
+                topCardsContainer.appendChild(card);
+            } else if (bottomCardsContainer.contains(card)) {
+                bottomCardsContainer.appendChild(card);
+            }
         });
     }
 });
 
 
-// Resizing
+// Resizing with + and -
 document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.card');
 
@@ -108,3 +136,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+

@@ -145,10 +145,9 @@ nav {
 }
 
 /* --- top cards --- */
-
 .card {
-  min-width: 400px;
-  max-width: 1000px;
+  min-width: 450px;
+  max-width: 1050px;
   height: 100%;
   background-color: #111522;
   padding: 12px;
@@ -157,15 +156,15 @@ nav {
   position: relative;
   cursor: grab;
 
-& .top-card-section {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
+  & .top-card-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
 
-& .drop-icon {
-  margin-left: auto;
-}
+  & .drop-icon {
+    margin-left: auto;
+  }
 
   & h2 {
     color: #fefefe;
@@ -189,59 +188,11 @@ nav {
     align-items: center;
     margin-top: 20px;
   }
-
 }
 
 /* --- bottom cards --- */
-.card1 {
-  display: flex;
-  min-width: 600px;
-  width: 800px;
-  min-height: 500px;
-  max-height: 700px;
-  padding: 10px;
-  border-radius: 6px;
-  background-color: #111522;
-  resize: both;
-  overflow: auto;
-  position: relative;
-  cursor: grab;
-}
-
-& .card2 {
-  display: flex;
-  min-width: 350px;
+.bottom-cards .card {
   width: 500px;
-  min-height: 300px;
-  max-height: 600px;
-  padding: 10px;
-  border-radius: 6px;
-  background-color: #111522;
-  resize: both;
-  overflow: auto;
-  position: relative;
-  cursor: grab;
-}
-
-.col-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-@media only screen and (max-width: 1080px) {
-  .bottom-cards {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .card1 {
-    min-width: 90%;
-  }
-
-  .card2 {
-    min-width: 90%;
-  }
 }
 
 /* --- dropdown menu card --- */
@@ -250,6 +201,7 @@ nav {
 }
 
 .dropdown-menu-card button {
+  color: #fefefe;
   border: none;
   cursor: pointer;
   background-color: transparent;
@@ -259,7 +211,7 @@ nav {
 .dropdown-menu-card button:hover {
   border: none;
   cursor: pointer;
-  background-color: #c9c9c9;
+  color: #1dae5f;
 }
 
 .dropdown-menu-card button:last-child {
@@ -269,8 +221,8 @@ nav {
 .show-dropdown-menu-card {
   display: flex;
   flex-direction: column;
-  background-color: #f9f9f9;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #111522;
+  box-shadow: 0 0 3px #cccccc50;
   border-radius: 5px;
   margin: 0;
   position: absolute;
@@ -278,9 +230,9 @@ nav {
   right: 26px;
 
   & p {
-    color: #1dae5f;
+    color: #1dae5f; 
     font-weight: bold;
-    border-bottom: 1px solid #0000002c;
+    border-bottom: 1px solid #fefefe2d;
     text-align: center;
     padding: 6px 0;
   }
@@ -292,4 +244,9 @@ nav {
 
 .drag-over {
   border: 2px dashed #000;
+}
+
+.dropdown-btn.active {
+  color: #1dae5f; 
+  font-weight: 600;
 }
