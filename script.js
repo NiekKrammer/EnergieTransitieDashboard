@@ -111,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
 // Resizing with + and -
 document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.card');
@@ -136,4 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
 

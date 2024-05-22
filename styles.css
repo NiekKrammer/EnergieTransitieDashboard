@@ -53,11 +53,10 @@ nav {
   margin-bottom: 50px;
 
   & span {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background-color: #1dae5f;
     border-radius: 50%;
-    margin-right: 6px;
   }
 
   & img {
@@ -70,68 +69,10 @@ nav {
   }
 }
 
-.dropdown {
-  margin-left: auto;
-}
-
-.dropbtn {
-  background-color: #32393a;
-  color: white;
-  padding: 8px 16px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  &:hover {
-    background-color: #47474e;
-  }
-  & i {
-    color: white;
-    margin-right: 6px;
-  }
-}
-
-.dropbtn:first-child {
-  margin-right: 10px;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
 @media only screen and (max-width: 600px) {
   nav h1 {
     font-size: 22px;
-    margin-right: 6px;
-  }
-
-  .dropbtn {
-    font-size: 12px;
-
-    & i {
-      margin-right: 4px;
-    }
-  }
+  } 
 }
 
 /* --- cards sections --- */
@@ -147,6 +88,7 @@ nav {
 /* --- top cards --- */
 .card {
   min-width: 450px;
+  width: 450px;
   max-width: 1050px;
   height: 100%;
   background-color: #111522;
@@ -155,7 +97,7 @@ nav {
   transition: 0.3s;
   position: relative;
   cursor: grab;
-
+  
   & .top-card-section {
     display: flex;
     align-items: center;
@@ -190,9 +132,20 @@ nav {
   }
 }
 
+
 /* --- bottom cards --- */
 .bottom-cards .card {
-  width: 500px;
+  width: 600px;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    min-width: unset;
+    width: 99%;
+  }
+  .bottom-cards .card {
+    width: 99%;
+  }
 }
 
 /* --- dropdown menu card --- */
@@ -243,7 +196,7 @@ nav {
 }
 
 .drag-over {
-  border: 2px dashed #000;
+  border: 3px dashed #000;
 }
 
 .dropdown-btn.active {
