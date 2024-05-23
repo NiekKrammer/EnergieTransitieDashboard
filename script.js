@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const minusIcon = card.querySelector('.fa-minus');
         const cardContainer = card.closest('.card');
 
-        const cardWidthIncrement = 225;
+        const cardWidthIncrement = 227;
 
         plusIcon.addEventListener('click', function() {
             const currentWidth = cardContainer.offsetWidth;
@@ -59,3 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Dark Light Mode
+document.querySelector(".toggle-btn").addEventListener("click", event => {
+	document.body.classList.toggle("alternative");
+});

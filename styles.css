@@ -8,11 +8,40 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-image: linear-gradient(to right, #0b1c2b, #0c3d37);
+@property --from-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #ff0000;
 }
+@property --to-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #00ff00;
+}
+
+body {
+	background-image: linear-gradient(
+		var(--from-color),
+		var(--to-color)
+	);
+	transition: --from-color 0.8s,
+		        --to-color   0.8s;
+}
+
+body:not(.alternative){
+	--from-color: #0b1c2b; 
+	--to-color:   #0c3d37;
+}
+body.alternative {
+	--from-color: #e1e1eb;
+	--to-color:   #e4e5f1; 
+
+  &
+  nav h1 {
+    color: #222;
+}
+}
+
 
 .dashboard {
   min-height: 100vh;
@@ -20,8 +49,6 @@ body {
   margin: 25px auto;
   padding: 0 12px;
 }
-
-
 
 /* --- circles/dots  --- */
 .green_dot {
@@ -73,16 +100,20 @@ nav {
 
   & button {
     margin-left: auto;
-    border: none;
-    outline: none;
+    color: #cccccc;
     background-color: transparent;
-    color: #111;
-    background-color: #fefefe;
-    text-align: center;
-    padding: 8px;
+    box-shadow: 0 0 2px #ccc;
+    border: none;
+    padding: 10px;
     border-radius: 50%;
     cursor: pointer;
+    transition: .1s;
   }
+  & button:hover {
+    box-shadow: 0 0 4px #ccc;
+     color: #fff;
+  }
+  
 }
 
 @media only screen and (max-width: 600px) {
@@ -106,10 +137,12 @@ nav {
   min-width: 475px;
   width: 450px;
   max-width: 100%;
+  height: 100%;
   background-color: #111522;
   padding: 12px;
   border-radius: 6px;
   transition: 0.3s;
+  position: relative;
   display: flex;
   flex-direction: column;
   cursor: grab;
