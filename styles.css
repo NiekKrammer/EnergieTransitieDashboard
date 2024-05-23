@@ -21,6 +21,8 @@ body {
   padding: 0 12px;
 }
 
+
+
 /* --- circles/dots  --- */
 .green_dot {
   width: 7px;
@@ -49,6 +51,7 @@ body {
 /* --- navbar --- */
 nav {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
 
@@ -66,6 +69,19 @@ nav {
   & h1 {
     font-size: 26px;
     color: #fefefe;
+  }
+
+  & button {
+    margin-left: auto;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #111;
+    background-color: #fefefe;
+    text-align: center;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
   }
 }
 
@@ -87,51 +103,49 @@ nav {
 
 /* --- top cards --- */
 .card {
-  min-width: 450px;
+  min-width: 475px;
   width: 450px;
-  max-width: 1050px;
-  height: 100%;
+  max-width: 100%;
   background-color: #111522;
   padding: 12px;
   border-radius: 6px;
   transition: 0.3s;
-  position: relative;
+  display: flex;
+  flex-direction: column;
   cursor: grab;
-  
-  & .top-card-section {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
+}
 
-  & .drop-icon {
-    margin-left: auto;
-  }
+.card .top-card-section {
+  display: flex;
+  align-items: center;
+}
 
-  & h2 {
-    color: #fefefe;
-    font-size: 18px;
-  }
+.card .drop-icon {
+  margin-left: auto;
+}
 
-  & i {
-    cursor: pointer;
-    color: #868686;
-    height: fit-content;
-    margin: 0 5px;
+.card h2 {
+  color: #fefefe;
+  font-size: 18px;
+}
 
-    &:hover {
-      color: #e4dbdb;
-    }
-  }
+.card i {
+  cursor: pointer;
+  color: #868686;
+  height: fit-content;
+  margin: 0 5px;
 
-  & .resize-icons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
+  &:hover {
+    color: #e4dbdb;
   }
 }
 
+.card .resize-icons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto; 
+  padding-top: 12px;
+}
 
 /* --- bottom cards --- */
 .bottom-cards .card {
@@ -140,13 +154,20 @@ nav {
 
 @media only screen and (max-width: 600px) {
   .card {
-    min-width: unset;
+    min-width: 300px;
     width: 99%;
   }
   .bottom-cards .card {
     width: 99%;
   }
 }
+
+@media only screen and (max-width: 320px) {
+  .card {
+    min-width: 275px;
+  }
+}
+
 
 /* --- dropdown menu card --- */
 .dropdown-menu-card {
@@ -175,7 +196,7 @@ nav {
   display: flex;
   flex-direction: column;
   background-color: #111522;
-  box-shadow: 0 0 3px #cccccc50;
+  box-shadow: 0 0 3px #cccccc7e;
   border-radius: 5px;
   margin: 0;
   position: absolute;
@@ -191,15 +212,15 @@ nav {
   }
 }
 
+.dropdown-btn.active {
+  color: #1dae5f; 
+}
+
+/* --- drop drag effect --- */
 .dragging {
   opacity: 0.5;
 }
 
 .drag-over {
-  border: 3px dashed #000;
-}
-
-.dropdown-btn.active {
-  color: #1dae5f; 
-  font-weight: 600;
+  border: 2px dashed #000;
 }
