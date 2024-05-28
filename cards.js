@@ -43,3 +43,39 @@ function drop(e) {
 function dragEnd() {
     this.classList.remove('dragging');
 }
+
+// Resizing with + and -
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.card');
+    const cardWidthIncrement = 227;
+
+    cards.forEach((card, index) => {
+        const plusIcon = card.querySelector('.fa-plus');
+        const minusIcon = card.querySelector('.fa-minus');
+        const cardContainer = card.closest('.card');
+        
+        // Load card width from localStorage
+        const savedWidth = localStorage.getItem(`card-width-${index}`);
+        if (savedWidth) {
+            cardContainer.style.width = savedWidth + 'px';
+        }
+
+        plusIcon.addEventListener('click', function() {
+            const currentWidth = cardContainer.offsetWidth;
+            const newWidth = currentWidth + cardWidthIncrement;
+            cardContainer.style.width = newWidth + 'px';
+
+            // Save the new width to localStorage
+            localStorage.setItem(`card-width-${index}`, newWidth);
+        });
+
+        minusIcon.addEventListener('click', function() {
+            const currentWidth = cardContainer.offsetWidth;
+            const newWidth = Math.max(currentWidth - cardWidthIncrement, 0);
+            cardContainer.style.width = newWidth + 'px';
+
+            // Save the new width to localStorage
+            localStorage.setItem(`card-width-${index}`, newWidth);
+        });
+    });
+});

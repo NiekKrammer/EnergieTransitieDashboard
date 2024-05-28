@@ -12,7 +12,7 @@ dropdownIcons.forEach((icon) => {
     });
 });
 
-// close dropdown menus when clicking outside
+// Close dropdown menus when clicking outside
 document.addEventListener('click', (event) => {
     if (!event.target.closest('.dropdown-menu-card')) {
         let allDropdownMenus = document.querySelectorAll(".dropdown-menu-card");
@@ -34,32 +34,27 @@ dropdownButtons.forEach(button => {
     });
 });
 
-// Resizing with + and -
-document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.card');
-
-    cards.forEach(card => {
-        const plusIcon = card.querySelector('.fa-plus');
-        const minusIcon = card.querySelector('.fa-minus');
-        const cardContainer = card.closest('.card');
-
-        const cardWidthIncrement = 227;
-
-        plusIcon.addEventListener('click', function() {
-            const currentWidth = cardContainer.offsetWidth;
-            const newWidth = currentWidth + cardWidthIncrement;
-            cardContainer.style.width = newWidth + 'px';
-        });
-
-        minusIcon.addEventListener('click', function() {
-            const currentWidth = cardContainer.offsetWidth;
-            const newWidth = Math.max(currentWidth - cardWidthIncrement, 0);
-            cardContainer.style.width = newWidth + 'px';
-        });
-    });
-});
 
 // Dark Light Mode
 document.querySelector(".toggle-btn").addEventListener("click", event => {
-	document.body.classList.toggle("alternative");
+    document.body.classList.toggle("lightMode");
+
+    // Save the current mode in localStorage
+    const isLightMode = document.body.classList.contains("lightMode");
+    localStorage.setItem("isLightMode", isLightMode);
 });
+
+// Load the mode from localStorage and apply it
+window.onload = () => {
+    const isLightMode = localStorage.getItem("isLightMode") === "true";
+    document.body.classList.toggle("lightMode", isLightMode);
+
+    // Load card widths from localStorage
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, index) => {
+        const savedWidth = localStorage.getItem(`card-width-${index}`);
+        if (savedWidth) {
+            card.style.width = savedWidth + 'px';
+        }
+    });
+};

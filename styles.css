@@ -11,37 +11,42 @@
 @property --from-color {
   syntax: "<color>";
   inherits: false;
-  initial-value: #ff0000;
+  initial-value: #0b1c2b;
 }
+
 @property --to-color {
   syntax: "<color>";
   inherits: false;
-  initial-value: #00ff00;
+  initial-value: #0c3d37;
 }
 
 body {
-	background-image: linear-gradient(
-		var(--from-color),
-		var(--to-color)
-	);
-	transition: --from-color 0.8s,
-		        --to-color   0.8s;
+  background-image: linear-gradient(to right, var(--from-color), var(--to-color));
+  transition: --from-color 0.7s, --to-color 0.7s;
 }
 
-body:not(.alternative){
-	--from-color: #0b1c2b; 
-	--to-color:   #0c3d37;
+body:not(.lightMode) {
+  --from-color: #0b1c2b;
+  --to-color: #0c3d37;
 }
-body.alternative {
-	--from-color: #e1e1eb;
-	--to-color:   #e4e5f1; 
 
-  &
-  nav h1 {
+body.lightMode {
+  --from-color: #dadae4;
+  --to-color: #e4e5f1;
+
+  & nav h1 {
     color: #222;
-}
-}
+  }
 
+  & nav button {
+    color: #333;
+    box-shadow: 0 0 2px #333;
+  }
+  & nav button:hover {
+    color: #000;
+    box-shadow: 0 0 4px #333;
+  }
+}
 
 .dashboard {
   min-height: 100vh;
@@ -107,19 +112,21 @@ nav {
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
-    transition: .1s;
+    transition: 0.1s;
   }
   & button:hover {
     box-shadow: 0 0 4px #ccc;
-     color: #fff;
+    color: #fff;
   }
-  
+  & button:active {
+    transform: scale(0.9);
+  }
 }
 
 @media only screen and (max-width: 600px) {
   nav h1 {
     font-size: 22px;
-  } 
+  }
 }
 
 /* --- cards sections --- */
@@ -176,7 +183,7 @@ nav {
 .card .resize-icons {
   display: flex;
   justify-content: space-between;
-  margin-top: auto; 
+  margin-top: auto;
   padding-top: 12px;
 }
 
@@ -200,7 +207,6 @@ nav {
     min-width: 275px;
   }
 }
-
 
 /* --- dropdown menu card --- */
 .dropdown-menu-card {
@@ -237,7 +243,7 @@ nav {
   right: 26px;
 
   & p {
-    color: #1dae5f; 
+    color: #1dae5f;
     font-weight: bold;
     border-bottom: 1px solid #fefefe2d;
     text-align: center;
@@ -246,7 +252,7 @@ nav {
 }
 
 .dropdown-btn.active {
-  color: #1dae5f; 
+  color: #1dae5f;
 }
 
 /* --- drop drag effect --- */
