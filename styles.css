@@ -219,6 +219,17 @@ select {
 .card h2 {
   color: #f7f6f6;
   font-size: 18px;
+  cursor: pointer;
+}
+
+.card .edit-icon {
+  display: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.card .editableHeading:hover .edit-icon {
+  display: inline-block;
 }
 
 .card .resize-icons {

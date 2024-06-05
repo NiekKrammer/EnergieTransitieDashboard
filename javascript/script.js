@@ -152,3 +152,49 @@ window.onload = () => {
   const isLightMode = localStorage.getItem("isLightMode") === "true";
   document.body.classList.toggle("lightMode", isLightMode);
 };
+
+  // Editable Heading
+  document.addEventListener("DOMContentLoaded", function () {
+    const headings = document.querySelectorAll(".editableHeading");
+
+    // Load saved text from localStorage
+    headings.forEach((heading, index) => {
+        const savedText = localStorage.getItem(`headingText-${index}`);
+        if (savedText) {
+            heading.childNodes[0].nodeValue = savedText; // Update the text content
+        }
+
+        // Function to create an input field and replace the heading
+        function enableEditing() {
+            const input = document.createElement("input");
+            input.type = "text";
+            input.value = heading.textContent.trim();
+            input.className = "headingInput"; // Add a class for styling if needed
+
+            // Replace the heading with the input field
+            heading.replaceWith(input);
+            input.focus();
+
+            // Handle saving the new text
+            input.addEventListener("blur", function () {
+                const newText = input.value;
+                heading.childNodes[0].nodeValue = newText;
+                localStorage.setItem(`headingText-${index}`, newText);
+
+                // Replace the input field with the updated heading
+                input.replaceWith(heading);
+            });
+
+            // Optional: Save the new text on pressing Enter
+            input.addEventListener("keydown", function (event) {
+                if (event.key === "Enter") {
+                    input.blur();
+                }
+            });
+        }
+
+        // Event listeners for click on heading or pen icon
+        heading.addEventListener("click", enableEditing);
+        heading.querySelector(".edit-icon").addEventListener("click", enableEditing);
+    });
+});
