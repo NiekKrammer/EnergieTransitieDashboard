@@ -79,3 +79,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Change graph with fa-rotate icon 
+document.querySelectorAll('.change-graph').forEach(icon => {
+    icon.addEventListener('click', function() {
+        const card = this.closest('.card');
+        const canvas = card.querySelector('canvas');
+
+        // Get the current chart instance associated with the canvas
+        const chart = charts.find(chart => chart.canvas === canvas);
+
+        if (chart) {
+            // Update the chart type
+            const currentIndex = ['bar', 'doughnut', 'line', 'polarArea'].indexOf(chart.config.type);
+            const nextIndex = (currentIndex + 1) % 4;
+            const nextType = ['bar', 'doughnut', 'line', 'polarArea'][nextIndex];
+            chart.config.type = nextType;
+
+            // Update the chart
+            chart.update();
+        }
+    });
+});
