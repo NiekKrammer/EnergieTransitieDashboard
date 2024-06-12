@@ -36,8 +36,8 @@ body:not(.lightMode) {
 }
 
 body.lightMode {
-  --from-color: #dadae4;
-  --to-color: #e4e5f1;
+  --from-color: #c9d4c7;
+  --to-color: #cdd6cc;
 
   & nav h1 {
     color: #0b1c2b;
@@ -49,6 +49,13 @@ body.lightMode {
   & nav button:hover {
     color: #000;
   }
+}
+
+section.dashboard {
+  min-height: 100vh;
+  max-width: 1500px;
+  margin: 25px auto;
+  padding: 0 18px;
 }
 
 /* --- circles/dots  --- */
@@ -74,13 +81,6 @@ body.lightMode {
   background-color: #ebe322;
   border-radius: 50%;
   margin-right: 8px;
-}
-
-.dashboard {
-  min-height: 100vh;
-  max-width: 1500px;
-  margin: 25px auto;
-  padding: 0 12px;
 }
 
 /* --- navbar --- */
@@ -112,7 +112,7 @@ nav {
   }
 
   & .edit-btn {
-    font-size: 14px;
+    font-size: 18px;
     color: #cccccc;
     background-color: transparent;
     border: none;
@@ -121,7 +121,8 @@ nav {
   }
 
   & .toggle-btn {
-    margin-left: 16px;
+    margin-left: 20px;
+    font-size: 18px;
     color: #cccccc;
     background-color: transparent;
     border: none;
@@ -133,7 +134,7 @@ nav {
   .edit-btn:hover {
     color: #fefefe;
   }
-  
+
   & .toggle-btn:active,
   .edit-btn:active {
     transform: scale(0.92);
@@ -147,19 +148,20 @@ nav {
 }
 
 /* --- select charts --- */
-select {
-  margin: 12px 0;
+#chartTypeSelect {
+  margin: 12px 0 24px;
   padding: 6px 12px;
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background-color: #f9f9f9;
+  margin-right: 4px;
 }
 
 .addChartBtn {
   padding: 7px 12px;
   font-size: 16px;
-  background-color: #4caf50;
+  background-color: #4c82af;
   color: white;
   border: none;
   border-radius: 4px;
@@ -168,7 +170,7 @@ select {
 }
 
 .addChartBtn:hover {
-  background-color: #45a049;
+  opacity: 0.9;
 }
 
 /* --- cards --- */
@@ -193,17 +195,47 @@ select {
 .card .top-card-section {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin: 6px 0 24px;
+}
+
+.card .dropdown_and_deleteBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  & i {
+    color: #fefefe;
+  }
+
+}
+
+/* --- change charts with dropdown --- */
+.chartTypeSelectCard {
+  font-size: 16px;
+  padding: 2px 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+.chartTypeSelectCard {
+  display: none;
+}
+
+.showButtons .chartTypeSelectCard {
+  display: block;
 }
 
 .card .removeButton {
   display: none;
   margin-left: auto;
   font-size: 12px;
-  padding: 6px 12px;
+  font-weight: 500;
+  padding: 8px 16px;
   background-color: #ff4d4d;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   transition: 0.2s;
 }
@@ -212,7 +244,7 @@ select {
   background-color: #ee2828;
 }
 
-.showRemove .removeButton {
+.showButtons .removeButton {
   display: block;
 }
 
@@ -243,6 +275,13 @@ select {
 
 .card i:hover {
   color: #e4dbdb;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    min-width: 275px;
+    width: 100%;
+  }
 }
 
 /* --- drop drag effect --- */

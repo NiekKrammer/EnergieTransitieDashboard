@@ -44,60 +44,16 @@ function dragEnd() {
     this.classList.remove('dragging');
 }
 
-// Resizing with + and -
-document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.card');
-    const cardWidthIncrement = 227;
-
-    cards.forEach((card, index) => {
-        const plusIcon = card.querySelector('.fa-plus');
-        const minusIcon = card.querySelector('.fa-minus');
-        const cardContainer = card.closest('.card');
-        
-        // Load card width from localStorage
-        const savedWidth = localStorage.getItem(`card-width-${index}`);
-        if (savedWidth) {
-            cardContainer.style.width = savedWidth + 'px';
-        }
-
-        plusIcon.addEventListener('click', function() {
-            const currentWidth = cardContainer.offsetWidth;
-            const newWidth = currentWidth + cardWidthIncrement;
-            cardContainer.style.width = newWidth + 'px';
-
-            // Save the new width to localStorage
-            localStorage.setItem(`card-width-${index}`, newWidth);
-        });
-
-        minusIcon.addEventListener('click', function() {
-            const currentWidth = cardContainer.offsetWidth;
-            const newWidth = Math.max(currentWidth - cardWidthIncrement, 0);
-            cardContainer.style.width = newWidth + 'px';
-
-            // Save the new width to localStorage
-            localStorage.setItem(`card-width-${index}`, newWidth);
-        });
-    });
-});
-
-// Change graph with fa-rotate icon 
-document.querySelectorAll('.change-graph').forEach(icon => {
-    icon.addEventListener('click', function() {
-        const card = this.closest('.card');
-        const canvas = card.querySelector('canvas');
-
-        // Get the current chart instance associated with the canvas
-        const chart = charts.find(chart => chart.canvas === canvas);
-
-        if (chart) {
-            // Update the chart type
-            const currentIndex = ['bar', 'doughnut', 'line', 'polarArea'].indexOf(chart.config.type);
-            const nextIndex = (currentIndex + 1) % 4;
-            const nextType = ['bar', 'doughnut', 'line', 'polarArea'][nextIndex];
-            chart.config.type = nextType;
-
-            // Update the chart
-            chart.update();
-        }
-    });
-});
+// Dark Light Mode
+document.querySelector(".toggle-btn").addEventListener("click", event => {
+    document.body.classList.toggle("lightMode");
+  
+    const isLightMode = document.body.classList.contains("lightMode");
+    localStorage.setItem("isLightMode", isLightMode);
+  });
+  
+  window.onload = () => {
+    const isLightMode = localStorage.getItem("isLightMode") === "true";
+    document.body.classList.toggle("lightMode", isLightMode);
+  };
+  
