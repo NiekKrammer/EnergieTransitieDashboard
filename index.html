@@ -18,19 +18,16 @@
 
   <body>
     <section class="dashboard">
-      
       <!-- navbar -->
       <nav>
         <span></span>
         <img src="imgs/power-icon.png" />
         <h1>Energie Transitie</h1>
-        <div class="buttons">
-          <button class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></button>
-          <button class="toggle-btn"><i class="fa-regular fa-sun"></i></button>
-        </div>
+        <button class="toggle-btn"><i class="fa-regular fa-sun"></i></button>
       </nav>
 
       <!-- select charts -->
+      <h2 class="h2_voeg_toe">Grafieken:</h2>
       <select id="chartTypeSelect">
         <optgroup label="Types"></optgroup>
         <option value="bar">Staafdiagram</option>
@@ -41,36 +38,41 @@
         <option value="polarArea">Pool</option>
       </select>
       <button id="addChartButton" class="addChartBtn">Voeg toe</button>
-      
+
       <div class="container" id="chartContainer"></div>
 
-     <!-- render charts -->
-     <template id="chartTemplate">
-      <div class="card" draggable="true">
-        <div class="top-card-section">
-          <h2 class="editableHeading">Energie <i class="fas fa-pen edit-icon"></i></h2>
-          <div class="dropdown_and_deleteBtn">
-            <select class="chartTypeSelectCard" onchange="changeChart(this)">
-              <optgroup label="Types"></optgroup>
-              <option value="bar">Staafdiagram</option>
-              <option value="line">Lijn</option>
-              <option value="pie">Taart</option>
-              <option value="radar">Radar</option>
-              <option value="doughnut">Donut</option>
-              <option value="polarArea">Pool</option>
-            </select>
-            <button class="removeButton"><i class="fa-regular fa-trash-can"></i></button>
+      <!-- render charts -->
+      <template id="chartTemplate">
+        <div class="card" draggable="true">
+          <div class="top-card-section">
+            <h2 class="editableHeading">
+              Energie <i class="fas fa-pen edit-icon"></i>
+            </h2>
+            <div class="chart_dropdown_delete_btn">
+              <select class="chartTypeSelectCard" onchange="changeChart(this)">
+                <optgroup label="Types"></optgroup>
+                <option value="bar">Staafdiagram</option>
+                <option value="line">Lijn</option>
+                <option value="pie">Taart</option>
+                <option value="radar">Radar</option>
+                <option value="doughnut">Donut</option>
+                <option value="polarArea">Pool</option>
+              </select>
+              <button class="removeButton">
+                <i class="fa-regular fa-trash-can"></i>
+              </button>
+            </div>
+            <button class="edit-btn">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+          </div>
+          <canvas></canvas>
+          <div class="resize-icons">
+            <i class="fa-solid fa-minus"></i>
+            <i class="fa-solid fa-plus"></i>
           </div>
         </div>
-        
-        <canvas></canvas>
-        <div class="resize-icons">
-          <i class="fa-solid fa-minus"></i>
-          <i class="fa-solid fa-plus"></i>
-          </div>
-          </div>
-    </template>
-
+      </template>
     </section>
 
     <script src="javascript/script.js"></script>
