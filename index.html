@@ -1,81 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="icon" type="image/x-icon" href="imgs/power-icon.png" />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Energie Transitie</title>
-  </head>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <link rel="icon" type="image/x-icon" href="imgs/power-icon.png" />
+      <link rel="stylesheet" href="styles.css" />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
+      <title>Energie Transitie</title>
+    </head>
 
-  <body>
-    <section class="dashboard">
-      <!-- navbar -->
-      <nav>
-        <span></span>
-        <img src="imgs/power-icon.png" />
-        <h1>Energie Transitie</h1>
-        <button class="toggle-btn"><i class="fa-regular fa-sun"></i></button>
-      </nav>
+    <body>
+      <section class="dashboard">
+        <!-- navbar -->
+        <nav>
+          <span></span>
+          <img src="imgs/power-icon.png" />
+          <h1>Energie Transitie</h1>
+          <button class="toggle-btn"><i class="fa-regular fa-sun"></i></button>
+        </nav>
 
-      <!-- select charts -->
-      <h2 class="h2_voeg_toe">Grafieken:</h2>
-      <select id="chartTypeSelect">
-        <optgroup label="Types"></optgroup>
-        <option value="bar">Staafdiagram</option>
-        <option value="line">Lijn</option>
-        <option value="pie">Taart</option>
-        <option value="radar">Radar</option>
-        <option value="doughnut">Donut</option>
-        <option value="polarArea">Pool</option>
-      </select>
-      <button id="addChartButton" class="addChartBtn">Voeg toe</button>
+        <!-- select charts -->
+        <h2 class="h2_voeg_toe">Grafieken:</h2>
+        
+        <select id="chartTypeSelect">
+          <optgroup label="Types"></optgroup>
+          <option value="spanning_zonnepanelen">Spanning Zonnepanelen (V)</option>
+          <option value="stroom_zonnepanelen">Stroom Zonnepanelen (A)</option>
+          <option value="spanning_accu">Spanning Accu (V)</option>
+          <option value="spanning_gebruikers">Spanning Gebruikers (V)</option>
+          <option value="stroom_gebruikers">Stroom Gebruikers (A)</option>
+          <option value="spanning_supercap_accu">Spanning supercap Accu (V)</option>
+          <option value="spanning_loodaccu">Spanning LoodAccu (V)</option>
+          <option value="stroom_fuel_cell">Stroom fuel cell</option>
+        </select>
+        <button id="addChartButton" class="addChartBtn">Voeg toe</button>
 
-      <div class="container" id="chartContainer"></div>
+        <div class="container" id="chartContainer"></div>
 
-      <!-- render charts -->
-      <template id="chartTemplate">
-        <div class="card" draggable="true">
-          <div class="top-card-section">
-            <h2 class="editableHeading">
-              Energie <i class="fas fa-pen edit-icon"></i>
-            </h2>
-            <div class="chart_dropdown_delete_btn">
-              <select class="chartTypeSelectCard" onchange="changeChart(this)">
-                <optgroup label="Types"></optgroup>
-                <option value="bar">Staafdiagram</option>
-                <option value="line">Lijn</option>
-                <option value="pie">Taart</option>
-                <option value="radar">Radar</option>
-                <option value="doughnut">Donut</option>
-                <option value="polarArea">Pool</option>
-              </select>
-              <button class="removeButton">
-                <i class="fa-regular fa-trash-can"></i>
+        <!-- render charts -->
+        <template id="chartTemplate">
+          <div class="card" draggable="true">
+            <div class="top-card-section">
+              <h2 class="editableHeading">
+                Energie <i class="fas fa-pen edit-icon"></i>
+              </h2>
+              <div class="chart_dropdown_delete_btn">
+                <select class="chartTypeSelectCard" onchange="changeChart(this)">
+                  <optgroup label="Types"></optgroup>
+                  <option value="bar">Staafdiagram</option>
+                  <option value="line">Lijn</option>
+                  <option value="pie">Taart</option>
+                  <option value="radar">Radar</option>
+                  <option value="doughnut">Donut</option>
+                  <option value="polarArea">Pool</option>
+                </select>
+                <button class="removeButton">
+                  <i class="fa-regular fa-trash-can"></i>
+                </button>
+              </div>
+              <button class="edit-btn">
+                <i class="fa-solid fa-pen-to-square"></i>
               </button>
             </div>
-            <button class="edit-btn">
-              <i class="fa-solid fa-pen-to-square"></i>
-            </button>
+            <canvas></canvas>
+            <div class="resize-icons">
+              <i class="fa-solid fa-minus"></i>
+              <i class="fa-solid fa-plus"></i>
+            </div>
           </div>
-          <canvas></canvas>
-          <div class="resize-icons">
-            <i class="fa-solid fa-minus"></i>
-            <i class="fa-solid fa-plus"></i>
-          </div>
-        </div>
-      </template>
-    </section>
+        </template>
+      </section>
 
-    <script src="javascript/script.js"></script>
-    <script src="javascript/cards.js"></script>
-  </body>
-</html>
+      <script src="javascript/script.js"></script>
+      <script src="javascript/cards.js"></script>
+    </body>
+  </html>

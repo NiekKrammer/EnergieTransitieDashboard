@@ -34,10 +34,13 @@ body:not(.lightMode) {
   --from-color: #0b1c2b;
   --to-color: #0c3d37;
 }
+canvas {
+  max-height: 300px; /* Pas dit aan naar wens */
+}
 
 body.lightMode {
-  --from-color: #c9d4c7;
-  --to-color: #cdd6cc;
+  --from-color: #dae0d9;
+  --to-color: #e4ebe4;
 
   & nav h1 {
     color: #0b1c2b;
