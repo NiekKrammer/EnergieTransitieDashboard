@@ -18,15 +18,15 @@
 
     <body>
       <section class="dashboard">
+        
         <!-- navbar -->
         <nav>
           <span></span>
           <img src="imgs/power-icon.png" />
           <h1>Energie Transitie</h1>
-          <button class="toggle-btn"><i class="fa-regular fa-sun"></i></button>
         </nav>
 
-        <!-- select charts -->
+        <!-- add charts -->
         <h2 class="h2_voeg_toe">Grafieken:</h2>
         
         <select id="chartTypeSelect">
@@ -51,7 +51,7 @@
               <h2 class="editableHeading">
                 Energie <i class="fas fa-pen edit-icon"></i>
               </h2>
-              <div class="chart_dropdown_delete_btn">
+              <div class="top-right">
                 <select class="chartTypeSelectCard" onchange="changeChart(this)">
                   <optgroup label="Types"></optgroup>
                   <option value="bar">Staafdiagram</option>
@@ -70,12 +70,15 @@
               </button>
             </div>
             <canvas></canvas>
+            <div class="bottom-section">
             <div class="resize-icons">
-              <i class="fa-solid fa-minus"></i>
-              <i class="fa-solid fa-plus"></i>
+              <i class="fa-solid fa-minus aaa"></i>
+              <i class="fa-solid fa-plus bbb"></i>
             </div>
           </div>
+          </div>
         </template>
+        
       </section>
 
       <script src="javascript/script.js"></script>

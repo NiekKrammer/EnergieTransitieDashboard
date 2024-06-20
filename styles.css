@@ -8,50 +8,12 @@
   font-family: "Poppins", sans-serif;
 }
 
-@property --from-color {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #0b1c2b;
-}
-
-@property --to-color {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #0c3d37;
-}
-
 body {
   background-image: linear-gradient(
     to right,
-    var(--from-color),
-    var(--to-color)
+    #0b1c2b, 
+    #0c3d37
   );
-  transition: --from-color 0.7s, --to-color 0.7s;
-}
-
-/* --- dark light mode  --- */
-body:not(.lightMode) {
-  --from-color: #0b1c2b;
-  --to-color: #0c3d37;
-}
-canvas {
-  max-height: 300px; /* Pas dit aan naar wens */
-}
-
-body.lightMode {
-  --from-color: #dae0d9;
-  --to-color: #e4ebe4;
-
-  & nav h1 {
-    color: #0b1c2b;
-  }
-
-  & nav button {
-    color: #333;
-  }
-  & nav button:hover {
-    color: #000;
-  }
 }
 
 section.dashboard {
@@ -89,7 +51,6 @@ section.dashboard {
 /* --- navbar --- */
 nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
 
@@ -181,25 +142,23 @@ nav {
   height: 30px;
 }
 
-.card .edit-btn {
+.card h2 {
+  color: #f7f6f6;
   font-size: 18px;
-  color: #cccccc;
-  background-color: transparent;
-  border: none;
   cursor: pointer;
-  transition: 0.2s;
-  margin-left: 16px;
 }
 
-.card .edit-btn:hover {
-  color: #fefefe;
+.card .edit-icon {
+  display: none;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
-.card .edit-btn:active {
-  transform: scale(0.92);
+.card .editableHeading:hover .edit-icon {
+  display: inline-block;
 }
 
-.chart_dropdown_delete_btn {
+.top-right {
   display: flex;
   gap: 10px;
   margin-left: auto;
@@ -241,29 +200,42 @@ nav {
   display: block;
 }
 
-.card h2 {
-  color: #f7f6f6;
+.card .edit-btn {
   font-size: 18px;
+  color: #cccccc;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
+  transition: 0.2s;
+  margin-left: 16px;
 }
 
-.card .edit-icon {
-  display: none;
-  margin-left: 10px;
-  cursor: pointer;
+.card .edit-btn:hover {
+  color: #fefefe;
 }
 
-.card .editableHeading:hover .edit-icon {
-  display: inline-block;
+.card .edit-btn:active {
+  transform: scale(0.92);
 }
 
 .card .resize-icons {
+  display: none;
+}
+
+.bottom-section {
+  margin-top: 8px;
+  height: 16px;
+}
+
+.card:hover .resize-icons {
   display: flex;
   justify-content: space-between;
-  margin-top: auto;
-  padding-top: 12px;
+  align-items: center;
+}
+
+.resize-icons i {
+  color: #cccccc;
   cursor: pointer;
-  color: #868686;
 }
 
 .card i:hover {
