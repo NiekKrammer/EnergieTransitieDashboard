@@ -201,7 +201,7 @@ nav {
 
 .card .edit-btn {
   font-size: 18px;
-  color: #cccccc;
+  color: #f1efef;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -210,26 +210,22 @@ nav {
 }
 
 .card .edit-btn:hover {
-  color: #fefefe;
+  opacity: 0.9;
 }
 
 .card .edit-btn:active {
   transform: scale(0.92);
 }
 
-.card .resize-icons {
-  display: none;
-}
-
-.card:hover .resize-icons {
+.resize-icons {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .resize-icons i {
-  color: #cccccc;
+  color: #ffffff75;
   cursor: pointer;
 }
 
