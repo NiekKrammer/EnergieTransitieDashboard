@@ -143,7 +143,7 @@ nav {
 }
 
 .card h2 {
-  color: #f7f6f6;
+  color: #f1efef;
   font-size: 18px;
   cursor: pointer;
 }
@@ -222,15 +222,11 @@ nav {
   display: none;
 }
 
-.bottom-section {
-  margin-top: 8px;
-  height: 16px;
-}
-
 .card:hover .resize-icons {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 10px;
 }
 
 .resize-icons i {
