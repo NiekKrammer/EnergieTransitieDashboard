@@ -178,6 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const currentWidth = card.offsetWidth;
       const newWidth = currentWidth + 227;
       card.style.width = newWidth + "px";
+      card.style.transition = "width 0.3s ease-in-out";
       localStorage.setItem(`card-width-${id}`, newWidth);
     });
 

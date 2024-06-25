@@ -133,13 +133,12 @@ nav {
   border-radius: 6px;
   transition: 0.3s;
   cursor: grab;
-  position: relative;
 }
 
 .card .top-card-section {
   display: flex;
-  margin: 4px 0 24px 0;
-  height: 30px;
+  align-items: start;
+  margin-bottom: 24px;
 }
 
 .card h2 {
