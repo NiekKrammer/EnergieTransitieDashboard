@@ -9,11 +9,7 @@
 }
 
 body {
-  background-image: linear-gradient(
-    to right,
-    #0b1c2b, 
-    #0c3d37
-  );
+  background-image: linear-gradient(to right, #0b1c2b, #0c3d37);
 }
 
 section.dashboard {
@@ -52,7 +48,7 @@ section.dashboard {
 nav {
   display: flex;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 36px;
 
   & span {
     width: 8px;
@@ -88,17 +84,20 @@ nav {
 
 /* --- select charts --- */
 .chartTypeSelect {
-  margin: 4px 0 40px;
-  padding: 6px 12px;
+  height: 40px;
+  padding: 0 10px;
+  margin: 4px 0 26px;
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 4px;
   background-color: #f9f9f9;
   margin-right: 4px;
+  cursor: pointer;
 }
 
 .addChartBtn {
-  padding: 7px 12px;
+  height: 40px;
+  padding: 0 10px;
   font-size: 16px;
   background-color: #4c82af;
   color: white;
@@ -133,7 +132,8 @@ nav {
 .card .top-card-section {
   display: flex;
   align-items: start;
-  margin-bottom: 24px;
+  height: 30px;
+  margin-bottom: 36px;
 }
 
 .card h2 {
@@ -160,15 +160,10 @@ nav {
 
 .chartTypeSelectCard {
   font-size: 16px;
-  padding: 2px 6px;
+  background-color: #f0eeee;
   border: 1px solid #ddd;
   border-radius: 4px;
-  background-color: #f9f9f9;
-  display: none;
-}
-
-.showButtons .chartTypeSelectCard {
-  display: block;
+  cursor: pointer;
 }
 
 .card .removeButton {
@@ -190,8 +185,12 @@ nav {
   background-color: #ee2828;
 }
 
-.showButtons .removeButton {
+.showCardEditOptions .removeButton {
   display: block;
+}
+
+.showCardEditOptions .edit-icon {
+  display: inline-block;
 }
 
 .card .edit-btn {
@@ -200,7 +199,7 @@ nav {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.1s;
   margin-left: 16px;
 }
 
@@ -209,7 +208,7 @@ nav {
 }
 
 .card .edit-btn:active {
-  transform: scale(0.92);
+  transform: scale(0.90);
 }
 
 .resize-icons {
@@ -238,8 +237,10 @@ nav {
 /* --- drop drag effect --- */
 .dragging {
   opacity: 0.5;
+  cursor: grabbing;
 }
 
 .drag-over {
-  border: 2px dashed #000;
+  border: 2px dashed #e0dddd;
+  transition: 0.1s;
 }
