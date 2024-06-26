@@ -1,10 +1,10 @@
 import { data } from './data.js';
 
 document.addEventListener("DOMContentLoaded", function () {
-  const chartTypeSelect = document.getElementById("chartTypeSelect");
-  const addChartButton = document.getElementById("addChartButton");
-  const chartContainer = document.getElementById("chartContainer");
-  const chartTemplate = document.getElementById("chartTemplate");
+  const chartTypeSelect = document.querySelector(".chartTypeSelect");
+  const addChartButton = document.querySelector(".addChartBtn");
+  const chartContainer = document.querySelector(".chartContainer");
+  const chartTemplate = document.querySelector(".chartTemplate");
 
   // Create a new chart
   function createChart(chartType, data, id) {

@@ -19,7 +19,7 @@ body {
 section.dashboard {
   min-height: 100vh;
   max-width: 1500px;
-  margin: 25px auto;
+  margin: 20px auto;
   padding: 0 18px;
 }
 
@@ -87,12 +87,7 @@ nav {
 }
 
 /* --- select charts --- */
-.h2_voeg_toe {
-  color: #f9f9f9;
-  font-size: 22px;
-}
-
-#chartTypeSelect {
+.chartTypeSelect {
   margin: 4px 0 40px;
   padding: 6px 12px;
   font-size: 16px;
@@ -118,7 +113,7 @@ nav {
 }
 
 /* --- cards --- */
-.container {
+.chartContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;

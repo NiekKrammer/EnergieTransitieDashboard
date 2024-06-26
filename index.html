@@ -26,10 +26,8 @@
           <h1>Energie Transitie</h1>
         </nav>
 
-        <!-- add charts -->
-        <h2 class="h2_voeg_toe">Grafieken:</h2>
-        
-        <select id="chartTypeSelect">
+        <!-- add charts -->        
+        <select class="chartTypeSelect">
           <optgroup label="Types"></optgroup>
           <option value="spanning_zonnepanelen">Spanning Zonnepanelen (V)</option>
           <option value="stroom_zonnepanelen">Stroom Zonnepanelen (A)</option>
@@ -40,12 +38,12 @@
           <option value="spanning_loodaccu">Spanning LoodAccu (V)</option>
           <option value="stroom_fuel_cell">Stroom fuel cell</option>
         </select>
-        <button id="addChartButton" class="addChartBtn">Voeg toe</button>
+        <button class="addChartBtn">Voeg toe</button>
 
-        <div class="container" id="chartContainer"></div>
+        <div class="chartContainer"></div>
 
         <!-- render charts -->
-        <template id="chartTemplate">
+        <template class="chartTemplate">
           <div class="card" draggable="true">
             <div class="top-card-section">
               <h2 class="editableHeading">Data <i class="fas fa-pen edit-icon"></i>
