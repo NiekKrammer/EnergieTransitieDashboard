@@ -258,47 +258,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Laden van opgeslagen tekst uit localStorage
-  function loadHeadings() {
-    const headings = document.querySelectorAll(".editableHeading");
-    headings.forEach((heading) => {
-      const id = heading.closest(".card").dataset.id;
-      const savedText = localStorage.getItem(`headingText-${id}`);
-      if (savedText) {
-        heading.textContent = savedText;
-      }
-    });
-  }
-
-  loadHeadings();
-
-  // Functie om editing van heading mogelijk te maken
-  function enableEditing(heading) {
-    const card = heading.closest(".card");
-    const id = card.dataset.id;
-
-    const input = document.createElement("input");
-    input.type = "text";
-    input.value = heading.textContent.trim();
-    input.className = "headingInput";
-
-    heading.replaceWith(input);
-    input.focus();
-
-    input.addEventListener("blur", function () {
-      const newText = input.value;
-      heading.textContent = newText;
-      localStorage.setItem(`headingText-${id}`, newText);
-      input.replaceWith(heading);
-    });
-
-    input.addEventListener("keydown", function (event) {
-      if (event.key === "Enter") {
-        input.blur();
-      }
-    });
-  }
-
   // Functie om tekst van toevoegknop te wijzigen bij klikken
   const addChartBtn = document.querySelector(".addChartBtn");
   const originalContent = addChartBtn.innerHTML;

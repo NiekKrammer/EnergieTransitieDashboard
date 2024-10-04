@@ -208,7 +208,7 @@ nav {
 }
 
 .card .edit-btn:active {
-  transform: scale(0.90);
+  transform: scale(0.9);
 }
 
 .resize-icons {
@@ -231,6 +231,16 @@ nav {
   .card {
     min-width: 275px;
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .chartTypeSelect {
+    margin: 4px 0 12px;
+  }
+  
+  .addChartBtn {
+    margin-bottom: 26px;
   }
 }
 
